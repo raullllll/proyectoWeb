@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+    <STYLE>a {text-decoration: none;} </STYLE>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <title>PixelRunner</title>
+        <link link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+        <link  rel="stysheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;1,200&display=swap" rel="stylesheet">
+    </head>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+    </style>
+
+    <bodyM>
+        <hr id = "ARRIBA">
+        <header id="Header">
+
+            <img src="Imagenes\runner-portada.png" alt="logo" class="logo">
+            <!--Menu Header-->
+
+            <ul class="main-menu">
+
+                <li class="menu-item"><a href = "#ABAJO" class="link">SOBRE NOSOTROS</a></li>
+                <li class="menu-item"><a href = "Contacto.html" class="link">Contáctanos</a></li>
+                <li class="boton" ><a href = "#ARRIBA" class="link">INICIO</a></li>
+            </ul>
+        </header>
+
+        <script src="JavaScript.js"></script>
+
+
+        <!--Título y breve descripción del juego-->
+        <div class="main">
+            <h1 class="title">PIXEL RUNNER</h1>
+            <div class="lema">
+                <h2 class="description">El juego más  "</h2><h2 class="pixelado">PIXELADO</h2>  <h2 class="description">"  del año</h2>
+            </div>
+
+
+        </div>
+
+        <div class="imagen-principal">
+            <button  class="imgButtonAnt" onclick="imagenAnterior()">
+                <img class="imgButton" src="Imagenes/flecha_ant.png">
+            </button>
+            <div class="imgContainer">
+                <img class="imagen actual" src="Imagenes/portada1.jpg" alt="portada1">
+                <img class="imagen" src="Imagenes/portada2.jpg" alt="portada2">
+                <img class="imagen" src="Imagenes/portada3.jpg" alt="portada3">
+                <img class="imagen" src="Imagenes/portada4.jpg" alt="portada4">
+                <img class="imagen" src="Imagenes/portada5.jpg" alt="portada5">
+            </div>
+
+            <button  class="imgButtonSig" onclick="siguienteImagen()">
+                <img class="imgButton activado" src="Imagenes/flecha_sig.png">
+            </button>
+
+            <div class="texto-imagen">
+                <h2 class = "h2-texto-imagen"> 230.895€ </h2>
+                <h3 class = "h3-texto-imagen"> contribuido de 80.000€ </h3>
+
+                <h2 class = "h2-texto-imagen"> 5.907 </h2>
+                <h3 class = "h3-texto-imagen"> patrocinadores </h3>
+
+                <h2 class = "h2-texto-imagen"> 2 </h2>
+                <h3 class = "h3-texto-imagen"> días más </h3>
+
+                <button class="boton1"><a href = "Donaciones.html" class="link-donaciones">D O N A C I O N E S</a></button>
+            </div>
+
+
+            <div class="iconos">
+                <ul style="list-style: none;">
+                    <li class="twitter"><a href="https://twitter.com/PixelRunneer"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a> </li>
+                    <li class="youtube"><a href="https://www.youtube.com/embed/JwrnYJL4gec"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></a> </li>
+                    <li class="instagram"><a href="https://www.instagram.com/pixel_runner_oficial/?next=%2F" ><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a> </li>
+                    
+                </ul>
+            </div>
+            <script>
+                const todasImagenes = document.querySelectorAll(".imagen");
+                var imagenActual = 0;
+
+                function siguienteImagen(){
+
+                    if(imagenActual<todasImagenes.length-1){
+
+                        todasImagenes[imagenActual].classList.remove("entrandoIzda");
+                        todasImagenes[imagenActual].classList.remove("entrandoDcha");
+                        todasImagenes[imagenActual].classList.toggle("actual");
+                        imagenActual ++;
+                        todasImagenes[imagenActual].classList.toggle("actual");
+                        todasImagenes[imagenActual].classList.toggle("entrandoDcha");
+
+                        if(imagenActual==todasImagenes.length-1){
+                            document.querySelector(".imgButtonSig img").classList.toggle("activado");
+                        }else if(imagenActual==1){
+                            document.querySelector(".imgButtonAnt img").classList.toggle("activado");
+                        }
+
+                    }
+
+                }
+                function imagenAnterior(){
+
+                    if(imagenActual>0){
+
+                        todasImagenes[imagenActual].classList.remove("entrandoIzda");
+                        todasImagenes[imagenActual].classList.remove("entrandoDcha");
+                        todasImagenes[imagenActual].classList.toggle("actual");
+                        imagenActual --;
+                        todasImagenes[imagenActual].classList.toggle("actual");
+                        todasImagenes[imagenActual].classList.toggle("entrandoIzda");
+
+                        if(imagenActual==0){
+                            document.querySelector(".imgButtonAnt img").classList.toggle("activado");
+                        }else if(imagenActual==todasImagenes.length-2){
+                            document.querySelector(".imgButtonSig img").classList.toggle("activado");
+                        }
+                    }
+                }
+
+
+            </script>
+        </div>
+
+
+            <!--Contenido principal de la página-->
+            <div class="parrafo-p">
+                <article>
+                    <p>
+                        Pixel Runner es un videojuego de plataformas en el que acompañarás a un joven héroe sin nombre en busca de sus recuerdos, en una gran aventura a través del espacio y del tiempo. ¡Explora el mundo en sus diferentes épocas a través de las puertas dimensionales y devuelve la línea temporal a la normalidad!
+                        Pixel Runner estará disponible en todas las plataformas digitales de forma simultánea. Será posible también reservar el juego, tanto una versión básica del mismo como la versión coleccionista, que incluirá un “steelbook” para el juego con ilustraciones originales, el “artbook” del juego, una figura del héroe sin nombre, un disco con la banda sonora original y contenido exclusivo para el juego.
+                    </p>
+                </article>
+            </div>
+
+
+        <header2>
+            <nav>
+                <botonAbajo id="btn-comentarios">COMENTARIOS</botonAbajo>
+                <botonAbajo id="btn-historia">PREGUNTAS FRECUENTES</botonAbajo>
+                <botonAbajo id="btn-campana">CAMPAÑA</botonAbajo>
+            </nav>
+        </header2>
+
+            <div class="Menu-inferior">
+            <main2>
+
+            </main2>
+
+
+        <script>
+                var btnComentarios = document.getElementById("btn-comentarios");
+                var btnHistoria = document.getElementById("btn-historia");
+                var btnCampana = document.getElementById("btn-campana");
+                var contenido = document.querySelector("main2");
+
+                btnComentarios.addEventListener("click", function() {
+                    contenido.innerHTML =
+                        "<p>" +
+                        "<div class='comentarios'>" +
+                        "   <div class=\"tarjeta\">\n" +
+                        "       <div class=\"titulo\">Comentario 1</div>\n" +
+                        "   <div class=\"cuerpo\">\n" +
+                        "   Demasiadas personas aquí olvidan que este no es un estudio de desarrollo AAA y que usted es un desarrollador independiente. Los puertos toman tiempo y dinero, un equipo independiente que es inteligente no tendrá eso en metas poco exigentes. Ustedes lo están haciendo increíble y feliz por todos ustedes al ver que su sueño y proyecto se hacen realidad.\n" +
+                        "   </div>\n" +
+                        "       <div class=\"pie\">\n" +
+                        "  <p> Juan Alberto - Hace 2 días</p>\n" +
+                        "       </div>\n" +
+                        "   </div>\n" +
+                        "   <div class=\"tarjeta\">\n" +
+                        "<div class=\"titulo\">Comentario 2</div>\n" +
+                        "   <div class=\"cuerpo\">\n" +
+                        "   Muy buen juego, pero me gustaría que el protagonista pudiese hacer parry con enemigos potentes.\n" +
+                        "   </div>\n" +
+                        "<div class=\"pie\">\n" +
+                        "  <p> Bruce Lee - Hace 4 días</p>\n" +
+                        "</div>\n" +
+                        "   </div>\n" +
+                        "<div class=\"tarjeta\">\n" +
+                        "<div class=\"titulo\">Comentario 3</div>\n" +
+                        "<div class=\"cuerpo\">\n" +
+                            "   A pesar de que no es un estilo de juego que me gustase mucho, he de admitir que este me ha gustado.\n" +
+                        "</div>\n" +
+                        "<div class=\"pie\">\n" +
+                        "  <p> Conor McGregor - Hace 7 días</p>\n" +
+                        "</div>\n" +
+                        "</div>\n" +
+                        "<div class=\"tarjeta\">\n" +
+                        "<div class=\"titulo\">Comentario 4</div>\n" +
+                        "<div class=\"cuerpo\">\n" +
+                        "   ¡Casi 1000 euros! Felicidades :) \n" +
+                        "</div>\n" +
+                        "<div class=\"pie\">\n" +
+                        "  <p> Nicolas Fett - Hace 12 días</p>\n" +
+                        "</div>\n" +
+                        "</div>\n" +
+                        "<div class=\"tarjeta\">\n" +
+                        "<div class=\"titulo\">Comentario 5</div>\n" +
+                        "<div class=\"cuerpo\">\n" +
+                        "   Tienen redes sociales?? Quiero saber más del juego \n" +
+                        "</div>\n" +
+                        "<div class=\"pie\">\n" +
+                        "  <p> Miguel Torres - Hace 23 días</p>\n" +
+                        "</div>\n" +
+                        "</div>\n" +
+                        "</div>" +
+                        "</div>" +
+                        "</p>\n"
+                    ;
+                });
+
+                btnHistoria.addEventListener("click", function() {
+                    contenido.innerHTML =
+                        "<p><button class=\"accordion-barra\"></button>\n" +
+                        "        <div class=\"panel\">\n" +
+                        "            <p></p>\n" +
+                        "\n" +
+                        "        </div>\n" +
+                        "\n" +
+                        "        <button class=\"accordion\">¿El juego será gratis?</button>\n" +
+                        "        <div class=\"panel\">\n" +
+                        "            <p>Sí!!! Será free to play para las plataformas de PlayStation, Xbox, Microsoft Windows y Switch</p>\n" +
+                        "        </div>\n" +
+                        "\n" +
+                        "        <button class=\"accordion\">¿Qué requisitos necesitará mi PC para poder instalar el juego?</button>\n" +
+                        "        <div class=\"panel\">\n" +
+                        "            <p>Un procesador Intel i5 y 6GB de RAM.</p>\n" +
+                        "        </div>\n" +
+                        "\n" +
+                        "        <button class=\"accordion\">¿El juego tendrá micropagos?</button>\n" +
+                        "        <div class=\"panel\">\n" +
+                        "            <p>Sí, tendrá algún micropago, pero no te preocupes porque solo afectarán a la estética del juego y en ningún caso ofrecerán contenido nuevo ni supondrán un impedimento para que completes al 100% nuestro juego.</p>\n" +
+                        "        </div></p>"+
+                        "<p><button class=\"accordion-barra\"></button>\n" +
+                        "        <div class=\"panel\">\n" +
+                        "            <p></p>\n"
+                    ;
+
+
+                    var acc = document.getElementsByClassName("accordion");
+                    var i;
+
+                    for (i = 0; i < acc.length; i++) {
+                        acc[i].addEventListener("click", function() {
+                            this.classList.toggle("active");
+                            var panel = this.nextElementSibling;
+                            if (panel.style.display === "block") {
+                                panel.style.display = "none";
+                            } else {
+                                panel.style.display = "block";
+                            }
+                        });
+                    }
+
+                });
+
+                btnCampana.addEventListener("click", function() {
+                    contenido.innerHTML = "<p><div> <iframe width=\"780\" height=\"440\" src=\"https://www.youtube.com/embed/JwrnYJL4gec\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe> <p></p> </div></p>" +
+                        "<div>" +
+                        "<h3>" +
+                            "TRAILER PIXEL RUNNER"+
+                        "</h3>" +
+
+                        "<h2 class='h2-campaña' >" +
+                            "HISTORIA" +
+                        "</h2>" +
+                        "<p class='p-campaña' >"+
+                            "El protagonista de nuestra historia se despierta en El Vacío sin ningún recuerdo previo. Al\n" +
+                            "explorar un poco la zona, descubrirá una especie de portal que le arrastra hasta lo que\n" +
+                            "parece otro mundo. A partir de entonces, el héroe irá descubriendo quién es en realidad y\n" +
+                            "cómo acabó en El Vacío en primer lugar, y su misión será restaurar la línea temporal a su\n" +
+                            "estado natural, antes de que Zohr, el autoproclamado mesías, la alterase por completo.\n" +
+                            "¡Crea vínculos con los numerosos personajes secundarios que encontrarás en las\n" +
+                            "diferentes dimensiones y detén a Zohr!" +
+                            "</p>" +
+                            "<ul class='p-lista'>" +
+                            "<li>" +
+                                "Completa las numerosas misiones secundarias para expandir la narrativa y conocer\n" +
+                                "mejor a los personajes secundarios del juego, además de conseguir generosas\n" +
+                                "recompensas." +
+                            "</li>" +
+                            "<li>" +
+                                "Mejora la nave temporal para desbloquear más funciones y modos de juego, como\n" +
+                                "retos, arena o minijuegos." +
+                            "</li>" +
+                            "<li>" +
+                                "Registra las anomalías temporales que te encuentres para completar el bestiario." +
+                            "</li>" +
+                            "</ul>" +
+                            "<h2 class='h2-campaña'>PERSONAJES</h2>" +
+                            "<p class='p-campaña' >Héroe sin nombre:<p/> <br>" +
+                            "<p class='p-campaña' >Un jóven de pelo castaño, ojos azules y ¡gran talento para la lucha!, está en tus manos\n" +
+                            "escoger el camino del bien o de la oscuridad.\n" +
+                            "Consigue manzanas y calaveras y compra con ellas diferentes ítems, ayudas y skins.\n" +
+                            "Las manzanas abrirán miles de puertas a compras online de diferentes objetos de luz\n" +
+                            ",mientras que las calaveras permitirán compras de objetos oscuros. ¡Descubre su utilidad y\n" +
+                            "poderes!</p>" +
+                            "<h2 class='h2-campaña' >Enemigos:</h2>" +
+                            "<p class='p-campaña' >Descubre todas las dimensiones que te esperan, cada una más asombrosa que la anterior.\n" +
+                            "A lo largo de tu largo camino te encontrarás con muchos amigos que te brindaran ayuda,\n" +
+                            "¡pero no te confíes!, no todos serán bondadosos, los caminos no son seguros, y te cruzaras\n" +
+                            "con muchos seres que intentan destruirte. Aquí dejamos un pequeño avance:</p> <br>" +
+                            "<ul class='p-lista'>" +
+                            "<li><u>Slime acuático:</u> <br>" +
+                            "A primera vista parecen bastante inofensivos, pero debes estar alerta, cuando te\n" +
+                            "encuentres uno de estos seres, mátalo rápidamente, ya que en solitario son\n" +
+                            "bastante estúpidos, pero juntos pueden suponer un gran problema.</li> <br>" +
+                            "<li><u>Slime acuático encadenado:</u> <br>" +
+                            "cuando se juntan 6 slimes acuáticos, se organizan para formar este extraño ser más\n" +
+                            "inteligente, veloz y fiero que los slimes habituales. También son excelentes\n" +
+                            "nadadores, ¡así que prepara las aletas!</li> <br>" +
+                            "<li><u>Dragón de agua: </u><br>" +
+                            "no te dejes engañar por su elegante porte y sus brillantes colores; estos seres una\n" +
+                            "vez te enganchan con su cola, no te dejan escapar jamás, la enrollan alrededor del\n" +
+                            "tórax y cuello de su presa hasta asfixiarla. Además, pueden escupir un potente\n" +
+                            "veneno a una distancia moderada y dejar paralizadas a sus víctimas. Por otro lado,\n" +
+                            "puedes evitar acercarte a ellos de forma más o menos sencilla, ya que no son los\n" +
+                            "nadadores más rápidos del océano. De hecho, los dragones de mar no nadan; se\n" +
+                            "dejan llevar por las corrientes marinas, y cuando lo necesitan se anclan al suelo\n" +
+                            "agarrándose con la cola a lo que pueden, normalmente los esqueletos de sus " +
+                            "víctimas.</li><br>" +
+                            "<li><u>Chupasangres:</u> <br>" +
+                            "Pequeños murciélagos pertenecientes a grupos moderados. Son inofensivos si no\n" +
+                            "te acercas demasiado a ellos, se alimentan en su mayoría de roedores, aunque si te\n" +
+                            "aproximas lo suficiente o atacas a algún integrante del grupo no dudarán en drenarte\n" +
+                            "hasta la última gota de sangre. Son ciegos, tienen un rango de detección pequeño,\n" +
+                            "aunque cuidado, ¡la oscuridad les dará ventaja! Cuando estos atacan recuperan el\n" +
+                            "50% de la vida perdida.</li><br>" +
+                            "<li><u>Ojo reina :</u> <br>" +
+                            "Este horrible enemigo no te quitará el ojo de encima… Tiene un alto rango de visión,\n" +
+                            "y visión nocturna, detectarán tu presencia aunque tu no consigas verlos a ellos.\n" +
+                            "¡Procura llevar siempre un farolillo contigo siempre que puedas!. Su visión les\n" +
+                            "permite ver desde cualquier ángulo, incluso si éste te da la espalda. Puede estar\n" +
+                            "acompañado o llamar a sus súbditos los ojos, que protegerán a su reina a toda\n" +
+                            "costa, incluso con su propia vida.</li><br>" +
+                            "<li > <u> Fantasma errante:</u> <br>" +
+                            "Son el alma de viajeros que no han completado su periplo y se han quedado por el\n" +
+                            "camino. La desesperación y el despropósito ha consumido sus almas,ya apenas\n" +
+                            "recuerdan quiénes eran. Procura no acercarte mucho, ya que si lo haces empezarán\n" +
+                            "a perseguirte lenta pero inexorablemente, y aunque no avancen muy rápido, jamás\n" +
+                            "dejarán de hacerlo… Lo único que los detiene es la luz directa, que hace que se\n" +
+                            "disipen en el aire momentáneamente.</li><br>" +
+                            "<li> <u> Slime de las tinieblas:</u>  <br>" +
+                            "Esta criatura grimosa te dará más grima aún cuando sepas su procedencia. Nace\n" +
+                            "tras la fusión de varios cadáveres de antiguos slimes descompuestos. Después de\n" +
+                            "dicha fusión estos se reaniman misteriosamente en un solo ser, aunque este no\n" +
+                            "conserva ningún resquicio de la forma de ser o recuerdos de los slimes. Aunque este\n" +
+                            "ser sea más agresivo y malvado que los slimes normales, estos lo admirarán en una\n" +
+                            "mezcla de asombro y temor, tomándolo así por su rey. Por tanto, el slime de las\n" +
+                            "tinieblas puede llamar a slimes más pequeños para ser protegido.</li><br>" +
+                        "</ul>" +
+                        "<h2 class='h2-campaña'> QUE PUEDES ENCONTRAR EN EL JUEGO:</h2>" +
+                        "<ul class='p-lista'>" +
+                            "<li> <u>Portales: </u><br>" +
+                            "Navegarás por un mundo de plataformas abierto en el que la toma de decisiones te guiarán\n" +
+                            "por el camino correcto, o no... A lo largo de la aventura encontrarás una gran cantidad de\n" +
+                            "portales y viajarás a lo largo de miles de dimensiones hasta volver a poner todo en su lugar\n" +
+                            "y descubrir tu pasado. Los distintos portales corresponden cada uno a una dimensión\n" +
+                            "distinta, y poco a poco descubrirás el significado de cada uno.</li>" +
+                            "<li><u>Pociones: </u><br>" +
+                            "Durante tu camino encontrarás ciertas ayudas para acabar con tus enemigos. Las podrás\n" +
+                            "encontrar en cofres y diferentes escondites. También será posible comprarlas en nuestra\n" +
+                            "tienda online con ayuda de nuestra moneda virtual. Encontrarás una gran variedad de\n" +
+                            "pociones y objetos, entre ellas: Pociones de vida,de fuerza, de salto...</li>" +
+                            "<li><u>Puzzles:</u> <br>" +
+                            "Fíjate bien en los detalles de tu alrededor, ¡un mundo lleno de sorpresas y acertijos te\n" +
+                            "espera!.\n" +
+                            "La magia y la fantasía te acompañarán todo el camino.\n" +
+                            "Llaves, libros y todo tipo de objetos, te guiarán por el camino correcto hasta llegar a tu\n" +
+                            "destino. Ayuda a los compañeros que encontrarás a lo largo de tu aventura gracias a todas\n" +
+                            "las ayudas que recibirás.</li>" +
+                            "<li> <u>Armas:</u> <br>" +
+                            "¡Consigue todo tipo de armas! La resolución de puzzles en las diferentes dimensiones\n" +
+                            "serán recompensas con armas de todo tipo dependiendo del ecosistema en el que te\n" +
+                            "encuentres. Además en nuestra tienda online podrás encontrar armas exclusivas. ¡Consigue\n" +
+                            "todas las manzanas que puedas! <br> </li>" +
+                        "</ul>" +
+                        "<h2 class='h2-campaña'> CONCEPTS:</h2>" +
+                        "<img class='imagen-concepts' src='Imagenes/juntos.png' " +
+                        "</div>";
+
+                });
+            </script>
+                <hr id = "ABAJO">
+            </div>
+
+            <div><h2 class='h2-sobrenosotros' >EQUIPO DE TRABAJO</h2></div>
+
+            <div  class="sobre-nosotros">
+
+                <img src="Imagenes\personal-junto-funciones.png" alt="logo" >
+            </div>
+
+
+
+
+
+
+
+
+        <footer>
+            <div class="footermenu">
+                <ul class="main-menu">
+                    <li class="menu-item">Términos y condiciones</li>
+                    <li class="menu-item">Políticas de privacidad</li>
+                    <li class="menu-item">Uso de cookies</li>
+                </ul>
+            </div>
+            <div class="footertext" > ATENCIÓN: Esta página simula la campaña de microfinanciación de un videojuego ficticio
+                y no representa un producto real. Práctica de Multimedia, 1º GDDV - Curso 22/23
+                (Móstoles), URJC. La URJC no se hace responsable del contenido expuesto por el autor. Pixel Runner© 2023 </div>
+        </footer>
+
+    </bodyM>
+</html>
